@@ -1,8 +1,11 @@
 
-<ion-icon class="theme hidden text-3xl cursor-pointer mx-2 text-black dark:text-white"></ion-icon>
+<ion-icon class="theme hidden md:block text-3xl md:text-2xl cursor-pointer mx-2 text-black dark:text-white"
+name="sunny-outline"></ion-icon>
 
 <script>
-  const icon = document.querySelector('ion-icon.theme');
+  const icon = document.querySelector('.theme');
+
+  console.log(localStorage.theme);
 
   if (localStorage.theme === 'dark') {
     icon.setAttribute("name", "sunny");
@@ -11,6 +14,7 @@
   }
   
   icon?.addEventListener('click', () => {
+    console.log("click");
     if (localStorage.theme === 'dark') {
       localStorage.theme = 'light';
       document.documentElement.classList.remove('dark');
@@ -23,5 +27,4 @@
       icon.setAttribute("name", "sunny");
     }
   });
-
 </script>

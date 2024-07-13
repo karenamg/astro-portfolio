@@ -8,9 +8,9 @@ interface Props {
 const { name, label, placeholder } = Astro.props; 
 ---
 <div class="flex flex-col">
-  <label class="mb-2" for="name">{label} <span class="text-mandatory">*</span></label>
+  <label class="mb-2 md:text-xl" for="name">{label} <span class="text-mandatory">*</span></label>
   <div class="relative">
     <textarea name={name} placeholder={placeholder} required
-    class="px-4 py-2 border-[.8px] border-lightDark rounded-lg h-36 w-full bg-transparent focus:outline focus:outline-blue focus:outline-2"></textarea>
+    class="md:text-xl px-4 py-2 border-[.8px] border-lightDark rounded-lg h-36 w-full bg-transparent focus:outline focus:outline-blue focus:outline-2"></textarea>
   </div>
 </div>
