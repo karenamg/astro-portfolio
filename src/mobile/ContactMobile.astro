@@ -7,7 +7,7 @@ import SendMessage from "../components/SendMessage.astro"
 <Section title="Contact me">
   <div class="flex flex-col gap-y-6 justify-center items-center pb-8">
     <form action="https://api.web3forms.com/submit" method="POST"
-    class="flex flex-col rounded-2xl bg-darkOne p-8 gap-y-5 shadow-md">
+    class="flex flex-col rounded-2xl bg-light dark:bg-darkOne p-8 gap-y-5 shadow-lg">
     
       <input type="hidden" name="access_key" value="49efc8c7-baa9-4859-b02c-fb98752dde0a">
 
@@ -18,9 +18,9 @@ import SendMessage from "../components/SendMessage.astro"
     </form>
 
     <div class="flex flex-row gap-x-2.5">
-      <ion-icon class="mail text-3xl cursor-pointer mx-2 text-black dark:text-white" name="mail"></ion-icon>
-      <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-github"></ion-icon></a>
-      <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-linkedin"></ion-icon></a>
+      <ion-icon class="mail text-3xl cursor-pointer mx-2 text-dark dark:text-white" name="mail"></ion-icon>
+      <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class="text-3xl cursor-pointer mx-2 text-dark dark:text-white" name="logo-github"></ion-icon></a>
+      <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class="text-3xl cursor-pointer mx-2 text-dark dark:text-white" name="logo-linkedin"></ion-icon></a>
     </div>
   </div>
 </Section>

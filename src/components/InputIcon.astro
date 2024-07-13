@@ -13,7 +13,7 @@ const { name, type, label, placeholder, icon } = Astro.props;
   <label class="mb-2" for="name">{label} <span class="text-mandatory">*</span></label>
   <div class="relative">
     <input type={type} name={name} required
-    class="pl-10 pr-4 py-2 border-[.8px] border-lightDark rounded-lg max-h-10 w-full bg-transparent focus:border-blue"
+    class="pl-10 pr-4 py-2 border-[.8px] border-lightDark rounded-lg max-h-10 w-full bg-transparent focus:outline focus:outline-blue focus:outline-2"
     placeholder={placeholder}>
     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"> 
       <ion-icon class="text-base text-light-60" name={icon}></ion-icon>

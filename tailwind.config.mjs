@@ -12,6 +12,7 @@ export default {
         lightDark: "#767676",
         blue: "#4299E1",
         purpleLight: "#d6bcfa",
+        purpleDark: "#805AD5",
       },
     },
   },
