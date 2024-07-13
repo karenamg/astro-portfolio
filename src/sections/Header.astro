@@ -1,0 +1,11 @@
+---
+import Desktop from '../desktop/HeaderDesktop.astro';
+import Mobile from '../mobile/HeaderMobile.astro';
+---
+<div class="block md:hidden">
+  <Mobile />
+</div>
+
+<div class="hidden md:block">
+  <Desktop /> 
+</div>

@@ -1,0 +1,27 @@
+
+<ion-icon class="theme hidden text-3xl cursor-pointer mx-2 text-black dark:text-white"></ion-icon>
+
+<script>
+  const icon = document.querySelector('ion-icon.theme');
+
+  if (localStorage.theme === 'dark') {
+    icon.setAttribute("name", "sunny");
+  } else {
+    icon.setAttribute("name", "moon");
+  }
+  
+  icon?.addEventListener('click', () => {
+    if (localStorage.theme === 'dark') {
+      localStorage.theme = 'light';
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
+      icon.setAttribute("name", "moon");
+    } else {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+      document.body.classList.add('dark');
+      icon.setAttribute("name", "sunny");
+    }
+  });
+
+</script>

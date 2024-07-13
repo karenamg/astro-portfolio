@@ -1,0 +1,11 @@
+---
+import Desktop from '../desktop/ContactDesktop.astro';
+import Mobile from '../mobile/ContactMobile.astro';
+---
+<div class="block md:hidden">
+  <Mobile />
+</div>
+
+<div class="hidden md:block">
+  <Desktop /> 
+</div>

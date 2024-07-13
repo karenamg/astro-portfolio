@@ -1,0 +1,72 @@
+---
+import ThemeButton from "../components/ThemeButton.astro";
+---
+
+<header class="w-full fixed top-0 z-[1] bg-light dark:bg-dark text-black dark:text-white">
+  <nav class="py-6 px-6 content-center relative w-full">
+    <div class="flex justify-between items-center">
+      <div class="flex flex-row items-center gap-x-[10px] logo">
+        <img
+          class="w-[30px] h-[30px]"
+          src="/favicon.png" 
+          alt="Karen logo"
+        /> 
+        <label for="name" class="text-xl">Karen Moran</label>
+      </div>
+
+      
+      <ThemeButton />
+
+      <ion-icon class="menu text-3xl cursor-pointer mx-2 text-black dark:text-white" name="menu-outline"></ion-icon>
+    </div>
+
+    <div class="links flex flex-col items-center justify-center absolute w-full h-screen left-0 top-0
+      z-[-1] -translate-y-full bg-light dark:bg-dark">
+      <ul class="flex flex-col gap-y-[48px] text-center" >
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/skills">Skills</a>
+        </li>
+        <li>
+          <a href="/projects">Projects</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex flex-row gap-x-2 pt-[100px]">
+        <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-github"></ion-icon></a>
+        <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-linkedin"></ion-icon></a>
+      </div>
+    </div>
+
+  </nav>
+  
+  <script>
+    const menu = document.querySelector('ion-icon.menu');
+    const themeToggle = document.querySelector('ion-icon.theme');
+    const logo = document.querySelector('div.logo');
+    const list = document.querySelector('div.links');
+
+    menu?.addEventListener('click', () => {
+      if(menu.getAttribute('name') == "menu-outline"){
+        menu.setAttribute("name", "close-outline");
+        logo?.classList.add('hidden');
+        themeToggle?.classList.remove('hidden');
+        list?.classList.add('translate-y-0', 'transition-[transform]', 'ease-in-out', 'duration-500');
+      } else if(menu.getAttribute('name') == "close-outline") {
+        menu.setAttribute("name", "menu-outline");
+        logo?.classList.remove('hidden');
+        themeToggle?.classList.add('hidden');
+        list?.classList.remove('translate-y-0', 'ease-in-out');
+        setTimeout(()=> {
+          list?.classList.remove('transition-[transform]', 'duration-500');
+        }, 500);
+      };
+    });
+  </script>
+
+</header>

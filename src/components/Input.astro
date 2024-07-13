@@ -1,0 +1,15 @@
+---
+interface Props {
+  name: string;
+	label: string;
+  placeholder: string;
+}
+
+const { name, label, placeholder } = Astro.props; 
+---
+<div class="flex flex-col">
+  <label class="mb-2" for="name">{label} <span class="text-mandatory">*</span></label>
+  <div class="relative">
+    <textarea name={name} placeholder={placeholder} required class="px-4 py-2 border-[.8px] border-lightDark rounded-lg h-36 w-full bg-transparent"></textarea>
+  </div>
+</div>
