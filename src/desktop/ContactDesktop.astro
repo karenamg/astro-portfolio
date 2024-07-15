@@ -1,29 +1,26 @@
 ---
-import Section from "../components/Section.astro"
 import InputIcon from "../components/InputIcon.astro"
 import Input from "../components/Input.astro"
 import SendMessage from "../components/SendMessage.astro"
 ---
-<Section title="Contact me">
-  <div class="flex flex-col gap-y-6 justify-center items-center pb-8">
-    <form action="https://api.web3forms.com/submit" method="POST"
-    class="flex flex-col rounded-2xl bg-light dark:bg-darkOne p-8 gap-y-5 shadow-lg w-[520px]">
-    
-      <input type="hidden" name="access_key" value="49efc8c7-baa9-4859-b02c-fb98752dde0a">
+<div class="flex flex-col gap-y-6 justify-center items-center pb-8">
+  <form action="https://api.web3forms.com/submit" method="POST"
+  class="flex flex-col rounded-2xl bg-light dark:bg-darkOne p-8 gap-y-5 shadow-lg w-[520px]">
+  
+    <input type="hidden" name="access_key" value="49efc8c7-baa9-4859-b02c-fb98752dde0a">
 
-      <InputIcon name="name" type="text" label="Name" placeholder="Your name" icon="person-outline"/>
-      <InputIcon name="email" type="email" label="Email" placeholder="Your email" icon="mail-outline"/>
-      <Input name="message" label="Message" placeholder="Your message"/>
-      <SendMessage />
-    </form>
+    <InputIcon name="name" type="text" label="Name" placeholder="Your name" icon="person-outline"/>
+    <InputIcon name="email" type="email" label="Email" placeholder="Your email" icon="mail-outline"/>
+    <Input name="message" label="Message" placeholder="Your message"/>
+    <SendMessage />
+  </form>
 
-    <div class="flex flex-row gap-x-6 text-3xl md:text-4xl text-dark dark:text-white">
-      <ion-icon class="mail cursor-pointer mx-2" name="mail"></ion-icon>
-      <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class=" cursor-pointer mx-2" name="logo-github"></ion-icon></a>
-      <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class=" cursor-pointer mx-2" name="logo-linkedin"></ion-icon></a>
-    </div>
+  <div class="flex flex-row gap-x-6 text-3xl md:text-4xl text-dark dark:text-white">
+    <ion-icon class="mail cursor-pointer mx-2" name="mail"></ion-icon>
+    <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class=" cursor-pointer mx-2" name="logo-github"></ion-icon></a>
+    <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class=" cursor-pointer mx-2" name="logo-linkedin"></ion-icon></a>
   </div>
-</Section>
+</div>
 
 <script>
     const mail = document.querySelector('ion-icon.mail');

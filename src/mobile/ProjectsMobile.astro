@@ -1,15 +1,12 @@
 ---
-import Section from "../components/Section.astro"
 import Card from "../components/Card.astro"
 
 import { projects } from '@projects'
 ---
-<Section title="Projects">
-  <div class="flex flex-col gap-y-6 justify-center items-center pb-8 w-full">
-    {
-      projects.map(({name, description, image, url, repository, tecnologies}) => {
-        return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>
-      })
-    }
-  </div>
-</Section>
+ <div class="flex flex-col gap-y-6 justify-center items-center pb-8 w-full">
+  {
+    projects.map(({name, description, image, url, repository, tecnologies}) => {
+      return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>
+    })
+  }
+</div>

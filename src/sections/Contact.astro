@@ -1,11 +1,15 @@
 ---
 import Desktop from '../desktop/ContactDesktop.astro';
 import Mobile from '../mobile/ContactMobile.astro';
+import Section from 'src/components/Section.astro';
 ---
-<div class="block md:hidden">
-  <Mobile />
-</div>
 
-<div class="hidden md:block">
-  <Desktop /> 
-</div>
+<Section id="contact" title="Contact me">
+  <div class="block md:hidden">
+    <Mobile />
+  </div>
+  
+  <div class="hidden md:block">
+    <Desktop /> 
+  </div>
+</Section>

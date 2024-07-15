@@ -1,11 +1,14 @@
 ---
 import Desktop from '../desktop/HeroDesktop.astro';
 import Mobile from '../mobile/HeroMobile.astro';
+import Section from "../components/Section.astro"
 ---
-<div class="block md:hidden">
-  <Mobile />
-</div>
+<Section id="" title=""> 
+  <div class="block md:hidden">
+    <Mobile />
+  </div>
 
-<div class="hidden md:block">
-  <Desktop /> 
-</div>
+  <div class="hidden md:block">
+    <Desktop /> 
+  </div>
+</Section>
