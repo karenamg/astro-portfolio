@@ -5,12 +5,12 @@
       "description": "A progressive web app to help UCAB students and faculty fill out forms. The application includes many features like a variety of types questions, authentication, realtime collaboration, offline support and many different ways of visualizing and exporting results. Currently, this app is being used by the university.",
       "image": "ucab-forms.jpeg",
       "url": "https://ucab-forms.web.app/login",
-      "repository": "https://github.com/karenamg/kenny-bot.git",
+      "repository": "https://github.com/Miguelanggelo7/ucab-forms-extended.git",
       "tecnologies": ["React", "Firebase", "PWA"]
     },
     {
       "name": "Inventas",
-      "description": "POS mobile app",
+      "description": "An Android app built with Java and SQLite for inventory and sales management in economies with exchange controls. Capture item details, update prices based on exchange rates, track sales history, and view analytics. Empowering small businesses with improved management and decision-making.",
       "image": "inventas.png",
       "url": "",
       "repository": "https://github.com/barreto-exe/inventas.git",
@@ -18,7 +18,7 @@
     },
     {
       "name": "EnderBattle",
-      "description": "Minecraft game bassed",
+      "description": "A captivating desktop game developed in Java, SQLite, and libGDX. Explore biomes, defeat mobs and bosses in six worlds. Engage in multiplayer mode, adjust difficulty, and be the first to conquer the Ender Dragon.",
       "image": "ender-battle.png",
       "url": "",
       "repository": "https://github.com/barreto-exe/ender-battle.git",
@@ -26,16 +26,16 @@
     },
     {
       "name": "CodeTrain",
-      "description": "Robot orientado a promover el desarrollo del pensamiento computacional en niños de educacion inicial",
-      "image": "kenny.png",
+      "description": "An interactive educational robot promoting computational thinking in young children. Built with Arduino and 3D-printed design, it introduces programming concepts and enhances problem-solving skills from an early age.",
+      "image": "codetrain.jpeg",
       "url": "",
       "repository": "https://github.com/karenamg/kenny-bot.git",
       "tecnologies": ["Arduino", "C"]
     },
     {
       "name": "Vision Perfecta",
-      "description": "Pagina web para agencia de creacion de contenido",
-      "image": "vp.png",
+      "description": "Responsive landing page for a fictional content creation agency. Developed with Astro.js and Tailwind CSS. Captivating design, seamless user experience, and showcases agency's expertise and creativity.",
+      "image": "vision-perfecta.png",
       "url": "https://vision-perfecta.vercel.app/",
       "repository": "https://github.com/karenamg/astro-vision-perfecta.git",
       "tecnologies": ["Astro.js", "Tailwind CSS", "HTML"]
