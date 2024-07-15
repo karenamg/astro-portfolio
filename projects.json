@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "name": "UCAB Forms",
+      "description": "A progressive web app to help UCAB students and faculty fill out forms. The application includes many features like a variety of types questions, authentication, realtime collaboration, offline support and many different ways of visualizing and exporting results. Currently, this app is being used by the university.",
+      "image": "ucab-forms.jpeg",
+      "url": "https://ucab-forms.web.app/login",
+      "repository": "https://github.com/karenamg/kenny-bot.git",
+      "tecnologies": ["React", "Firebase", "PWA"]
+    },
+    {
+      "name": "Inventas",
+      "description": "POS mobile app",
+      "image": "inventas.png",
+      "url": "",
+      "repository": "https://github.com/barreto-exe/inventas.git",
+      "tecnologies": ["Java", "SQLite", "Android Studio"]
+    },
+    {
+      "name": "EnderBattle",
+      "description": "Minecraft game bassed",
+      "image": "ender-battle.png",
+      "url": "",
+      "repository": "https://github.com/barreto-exe/ender-battle.git",
+      "tecnologies": ["Java", "SQLite", "libGDX", "Sockets"]
+    },
+    {
+      "name": "CodeTrain",
+      "description": "Robot orientado a promover el desarrollo del pensamiento computacional en niños de educacion inicial",
+      "image": "kenny.png",
+      "url": "",
+      "repository": "https://github.com/karenamg/kenny-bot.git",
+      "tecnologies": ["Arduino", "C"]
+    },
+    {
+      "name": "Vision Perfecta",
+      "description": "Pagina web para agencia de creacion de contenido",
+      "image": "vp.png",
+      "url": "https://vision-perfecta.vercel.app/",
+      "repository": "https://github.com/karenamg/astro-vision-perfecta.git",
+      "tecnologies": ["Astro.js", "Tailwind CSS", "HTML"]
+    }
+  ]
+}
