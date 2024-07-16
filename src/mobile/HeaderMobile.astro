@@ -24,16 +24,16 @@ import ThemeButton from "../components/ThemeButton.astro";
       z-[-1] -translate-y-full bg-light dark:bg-dark">
       <ul class="flex flex-col gap-y-[48px] text-center" >
         <li>
-          <a href="#about">About</a>
+          <a href="#about" class="ref">About</a>
         </li>
         <li>
-          <a href="#skills">Skills</a>
+          <a href="#skills" class="ref">Skills</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          <a href="#projects" class="ref">Projects</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact" class="ref">Contact</a>
         </li>
       </ul>
 
@@ -49,24 +49,31 @@ import ThemeButton from "../components/ThemeButton.astro";
     const menu = document.querySelector('ion-icon.menu');
     const themeToggle = document.querySelector('ion-icon.theme');
     const logo = document.querySelector('div.logo');
-    const list = document.querySelector('div.links');
+    const links = document.querySelector('div.links');
+    const list = document.querySelectorAll('a.ref');
 
-    menu?.addEventListener('click', () => {
+    function toggleMenu() {
       if(menu.getAttribute('name') == "menu-outline"){
         menu.setAttribute("name", "close-outline");
         logo?.classList.add('hidden');
         themeToggle?.classList.remove('hidden');
-        list?.classList.add('translate-y-0', 'transition-[transform]', 'ease-in-out', 'duration-500');
+        links?.classList.add('translate-y-0', 'transition-[transform]', 'ease-in-out', 'duration-500');
       } else if(menu.getAttribute('name') == "close-outline") {
         menu.setAttribute("name", "menu-outline");
         logo?.classList.remove('hidden');
         themeToggle?.classList.add('hidden');
-        list?.classList.remove('translate-y-0', 'ease-in-out');
+        links?.classList.remove('translate-y-0', 'ease-in-out');
         setTimeout(()=> {
-          list?.classList.remove('transition-[transform]', 'duration-500');
+          links?.classList.remove('transition-[transform]', 'duration-500');
         }, 500);
       };
-    });
+    };
+
+    menu?.addEventListener('click',toggleMenu);
+
+    list.forEach(item => {
+      item.addEventListener('click',toggleMenu);
+    })
   </script>
 
 </header>

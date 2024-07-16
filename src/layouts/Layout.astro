@@ -37,9 +37,9 @@ const { title } = Astro.props;
 				history.replaceState({}, '', url.toString());
 			});
 		</script>
+		<Header />
 	</head>
 	<body>
-		<Header />
 		<slot />
 	</body>
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

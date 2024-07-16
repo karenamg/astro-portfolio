@@ -3,7 +3,7 @@ import Card from "../components/Card.astro"
 
 import { projects } from '@projects'
 ---
-<div class="grid grid-cols-2 gap-y-12 justify-center items-start pb-16 pt-4 w-full gap-x-24 place-items-stretch">
+<div class="grid grid-cols-2 gap-y-12 justify-center items-start w-full gap-x-24 place-items-stretch">
   {
     projects.map(({name, description, image, url, repository, tecnologies}) => {
       return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>

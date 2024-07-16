@@ -3,7 +3,7 @@ import Card from "../components/Card.astro"
 
 import { projects } from '@projects'
 ---
- <div class="flex flex-col gap-y-6 justify-center items-center pb-8 w-full">
+ <div class="flex flex-col gap-y-6 justify-center items-center w-full">
   {
     projects.map(({name, description, image, url, repository, tecnologies}) => {
       return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>
