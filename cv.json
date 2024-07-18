@@ -40,5 +40,10 @@
       "repository": "https://github.com/karenamg/astro-vision-perfecta.git",
       "tecnologies": ["Astro.js", "Tailwind CSS", "HTML"]
     }
-  ]
+  ],
+  "tecnologies": {
+    "fronted": ["Astro", "HTML", "CSS", "React", "Tailwind CSS", "JavaScript"],
+    "backend": ["Node.js", "Express.js", "MySQL", "PostgreSQL", "Firebase"],
+    "others": ["Git", "GitHub", "Jest", "C", "Java", "Flutter"]
+  }
 }

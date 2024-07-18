@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@projects": ["./projects.json"]
+      "@cv": ["./cv.json"],
+      "@icons": ["./icons.json"]
     }
   }
 }
