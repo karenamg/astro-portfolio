@@ -1,9 +1,15 @@
+---
+interface Props {
+  id: string;
+}
 
-<ion-icon class="theme hidden md:block text-3xl md:text-2xl cursor-pointer mx-2 text-black dark:text-white"
+const { id } = Astro.props; 
+---
+<ion-icon id={id} class="theme hidden md:block text-3xl md:text-2xl cursor-pointer mx-2 text-black dark:text-white"
 name="sunny-outline"></ion-icon>
 
-<script>
-  const icon = document.querySelector('.theme');
+<script define:vars={{id}}>
+  const icon = document.getElementById(id);
 
   console.log(localStorage.theme);
 
