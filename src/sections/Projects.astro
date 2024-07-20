@@ -1,15 +1,17 @@
 ---
-import Desktop from '../desktop/ProjectsDesktop.astro';
-import Mobile from '../mobile/ProjectsMobile.astro';
 import Section from 'src/components/Section.astro';
+import Card from "../components/Card.astro"
+
+import { projects } from '@cv'
 ---
 
 <Section id="projects" title="Projects">
-  <div class="block lg:hidden">
-    <Mobile />
-  </div>
-
-  <div class="hidden lg:block">
-    <Desktop /> 
+  <div class="flex flex-col gap-y-6 justify-center items-center w-full
+  lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start lg:place-items-stretch">
+    {
+      projects.map(({name, description, image, url, repository, tecnologies}) => {
+        return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>
+      })
+    }
   </div>
 </Section>
