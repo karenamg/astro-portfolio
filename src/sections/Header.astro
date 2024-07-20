@@ -1,11 +1,113 @@
 ---
-import Desktop from '../desktop/HeaderDesktop.astro';
-import Mobile from '../mobile/HeaderMobile.astro';
+import ThemeButton from "../components/ThemeButton.astro"
 ---
-<div class="block md:hidden">
-  <Mobile />
-</div>
+<header class="block md:hidden w-full fixed top-0 z-[1] bg-light dark:bg-dark text-black dark:text-white">
+  <nav class="py-6 px-6 content-center relative w-full">
+    <div class="flex justify-between items-center">
+      <div class="flex flex-row items-center gap-x-[10px] logo">
+        <img
+          class="size-7"
+          src="/favicon.png" 
+          alt="Karen logo"
+        /> 
+        <label for="name" class="text-xl">Karen Moran</label>
+      </div>
 
-<div class="hidden md:block">
-  <Desktop /> 
-</div>
+      
+      <ThemeButton id="mobile-toggler"/>
+
+      <ion-icon class="menu text-3xl cursor-pointer mx-2 text-black dark:text-white" name="menu-outline"></ion-icon>
+    </div>
+
+    <div class="links flex flex-col items-center justify-center absolute w-full h-screen left-0 top-0
+      z-[-1] -translate-y-full bg-light dark:bg-dark">
+      <ul class="flex flex-col gap-y-[48px] text-center" >
+        <li>
+          <a href="#about" class="ref">About</a>
+        </li>
+        <li>
+          <a href="#projects" class="ref">Projects</a>
+        </li>
+        <li>
+          <a href="#skills" class="ref">Skills</a>
+        </li>
+        <li>
+          <a href="#contact" class="ref">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex flex-row gap-x-2 pt-[100px]">
+        <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-github"></ion-icon></a>
+        <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class="text-3xl cursor-pointer mx-2 text-black dark:text-white" name="logo-linkedin"></ion-icon></a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<header class="hidden md:flex justify-center bg-light dark:bg-dark text-black dark:text-white w-full fixed top-0 z-[2]">
+  <nav class="flex justify-between items-center py-6 px-8 content-center w-full max-w-[1440px] m-0">
+    <div class="flex flex-row items-center gap-x-5">
+      <img
+        class="size-11"
+        src="/favicon.png" 
+        alt="Karen logo"
+      />  
+      <label for="name" class="md:text-lg lg:text-2xl">Karen Moran</label>
+    </div>
+
+    <div class="flex flex-row">
+      <ul class="flex flex-row items-center justify-center gap-x-8 text-lg" >
+        <li>
+          <a href="#about" class="hover:text-grayLight duration 500">About</a>
+        </li>
+        <li>
+          <a href="#projects" class="hover:text-grayLight duration 500">Projects</a>
+        </li>
+        <li>
+          <a href="#skills" class="hover:text-grayLight duration 500">Skills</a>
+        </li>
+        <li>
+          <a href="#contact" class="hover:text-grayLight duration 500">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex ml-6 pl-6 border-l border-graylight gap-x-4">
+        <a rel="githubpage" href="https://github.com/karenamg" target="_blank" class="flex items-center"> <ion-icon class="text-2xl cursor-pointer mx-2 text-black dark:text-white" name="logo-github"></ion-icon></a>
+        <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank" class="flex items-center"><ion-icon class="text-2xl cursor-pointer mx-2 text-black dark:text-white" name="logo-linkedin"></ion-icon></a>
+        <ThemeButton id="desktop-toggler"/>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menu = document.querySelector('ion-icon.menu');
+  const themeToggle = document.querySelector('ion-icon.theme');
+  const logo = document.querySelector('div.logo');
+  const links = document.querySelector('div.links');
+  const list = document.querySelectorAll('a.ref');
+
+  function toggleMenu() {
+    if(menu.getAttribute('name') == "menu-outline"){
+      menu.setAttribute("name", "close-outline");
+      logo?.classList.add('hidden');
+      themeToggle?.classList.remove('hidden');
+      links?.classList.add('translate-y-0', 'transition-[transform]', 'ease-in-out', 'duration-500');
+    } else if(menu.getAttribute('name') == "close-outline") {
+      menu.setAttribute("name", "menu-outline");
+      logo?.classList.remove('hidden');
+      themeToggle?.classList.add('hidden');
+      links?.classList.remove('translate-y-0', 'ease-in-out');
+      setTimeout(()=> {
+        links?.classList.remove('transition-[transform]', 'duration-500');
+      }, 500);
+    };
+  };
+
+  menu?.addEventListener('click',toggleMenu);
+
+  list.forEach(item => {
+    item.addEventListener('click',toggleMenu);
+  })
+</script>
