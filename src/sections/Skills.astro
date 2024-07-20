@@ -1,10 +1,13 @@
 ---
 import Section from 'src/components/Section.astro';
+
+import { tecnologies } from "@cv"
+  import { icons } from "@icons"
 ---
 
 <Section id="skills" title="Skills">
-  <div class="block md:hidden w-full">
-    <div class="px-5 mb-4">
+  <div class="block md:hidden w-full max-w-[520px]">
+    <div class="px-5 mb-4 w-full">
       <div class="grid grid-cols-3 w-full rounded-full dark:bg-darkOne shadow-lg">
         <button class="fronted p-2">Fronted</button>
         <button class="backend p-2">Backend</button>
@@ -13,11 +16,47 @@ import Section from 'src/components/Section.astro';
     </div>
     
     <ul id="technology-list" class="grid grid-cols-3 gap-5 p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"></ul>
-    
   </div>
   
-  <div class="hidden md:block">
-    
+  <div class="md:grid md:gap-y-12 hidden lg:grid-cols-3 lg:gap-x-12 text-3xl md:w-[520px] lg:w-full">
+    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne rounded-2xl shadow-lg">
+      <h3 class="text-center pt-4 px-4">Fronted</h3>
+      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
+        {
+          tecnologies.fronted.map((item)=>{ return <li>
+            <article> 
+              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
+              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
+          </li> })
+        }
+      </ul>
+    </div>
+
+    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg">
+      <h3 class="text-center pt-4 px-4">Backend</h3>
+      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
+        {
+          tecnologies.backend.map((item)=>{ return <li>
+            <article> 
+              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
+              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
+          </li> })
+        }
+      </ul>
+    </div>
+
+    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg">
+      <h3 class="text-center pt-4 px-4">Others</h3>
+      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
+        {
+          tecnologies.others.map((item)=>{ return <li>
+            <article> 
+              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
+              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
+          </li> })
+        }
+      </ul>
+    </div>
   </div>
 </Section>
 
@@ -44,6 +83,7 @@ import Section from 'src/components/Section.astro';
         header.textContent = item;
 
         article.classList.add('flex', 'flex-col', 'text-center', 'text-sm', 'gap-y-2');
+        img.classList.add('p-2');
         article.appendChild(img);
         article.appendChild(header);
         listItem.appendChild(article);

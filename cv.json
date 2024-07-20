@@ -43,7 +43,14 @@
   ],
   "tecnologies": {
     "fronted": ["Astro", "HTML", "CSS", "React", "Tailwind CSS", "JavaScript"],
-    "backend": ["Node.js", "Express.js", "MySQL", "PostgreSQL", "Firebase"],
+    "backend": [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "PostgreSQL",
+      "Firebase",
+      "MongoDB"
+    ],
     "others": ["Git", "GitHub", "Jest", "C", "Java", "Flutter"]
   }
 }
