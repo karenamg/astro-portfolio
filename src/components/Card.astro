@@ -5,10 +5,10 @@ interface Props {
   image: string;
   url: string;
   repository: string;
-  tecnologies: string [];
+  technologies: string [];
 }
 
-const { name, description, image, url, repository, tecnologies} = Astro.props; 
+const { name, description, image, url, repository, technologies} = Astro.props; 
 var col;
 
 if (url && repository) {
@@ -23,7 +23,7 @@ col = 0;
 
 ---
 <article class="flex flex-col justify-center rounded-2xl bg-light dark:bg-darkOne p-8 md:p-16 gap-y-5 shadow-lg w-full max-w-[420px] md:max-w-[520px] lg:max-w-[820px]">
-  <img src={image} alt=`${name} Photo`>
+  <img src={image} alt=`${name} Photo` class="aspect-video">
 
   <header class="text-2xl md:text-3xl font-bold text-center">{name}</header>
 
@@ -31,7 +31,7 @@ col = 0;
 
   <ul class="flex flex-wrap gap-2 justify-center items-center">
     {
-      tecnologies.map((item) =>{
+      technologies.map((item) =>{
         return <li class="flex text-sm md:text-md items-center px-3 py-1 bg-whiteAlpha dark:bg-white/10 rounded-full h-8">{item}</li>
       })
     }

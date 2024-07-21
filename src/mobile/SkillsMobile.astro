@@ -1,79 +1,213 @@
 <div class="px-5 mb-4">
   <div class="grid grid-cols-3 w-full rounded-full dark:bg-darkOne shadow-lg">
-    <button class="fronted p-2">Fronted</button>
+    <button class="frontend p-2">frontend</button>
     <button class="backend p-2">Backend</button>
     <button class="others p-2">Others</button>
   </div>
 </div>
 
-<ul id="technology-list" class="grid grid-cols-3 gap-5 p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"></ul>
+<ul
+  id="technology-list"
+  class="grid grid-cols-3 gap-5 p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"
+>
+</ul>
 
 <script>
-  import { tecnologies } from "@cv"
-  import { icons } from "@icons"
-  const front = document.querySelector('button.fronted');
-  const back = document.querySelector('button.backend');
-  const others = document.querySelector('button.others');
-  const technologyList = document.getElementById('technology-list');
+  import { technologies } from "@cv";
+  import { icons } from "@icons";
+  const front = document.querySelector("button.frontend");
+  const back = document.querySelector("button.backend");
+  const others = document.querySelector("button.others");
+  const technologyList = document.getElementById("technology-list");
 
-    // Función para renderizar la lista de tecnologías
-    function renderTechnologyList(technologies) {
-      technologyList.innerHTML = '';
+  // Función para renderizar la lista de tecnologías
+  function renderTechnologyList(technologies) {
+    technologyList.innerHTML = "";
 
-      technologies.forEach((item) => {
-        const listItem = document.createElement('li');
-        const article = document.createElement('article');
-        const img = document.createElement('img');
-        const header = document.createElement('header');
+    technologies.forEach((item) => {
+      const listItem = document.createElement("li");
+      const article = document.createElement("article");
+      const img = document.createElement("img");
+      const header = document.createElement("header");
 
-        img.src = icons.find((icon) => icon.name === item).src;
-        img.alt = `${item} icon`;
-        header.textContent = item;
+      img.src = icons.find((icon) => icon.name === item).src;
+      img.alt = `${item} icon`;
+      header.textContent = item;
 
-        article.classList.add('flex', 'flex-col', 'text-center', 'text-sm', 'gap-y-2');
-        article.appendChild(img);
-        article.appendChild(header);
-        listItem.appendChild(article);
-        technologyList.appendChild(listItem);
-      });
-    }
-
-    front?.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-    renderTechnologyList(tecnologies.fronted);
-    back?.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-    others?.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-
-    front?.addEventListener('click', () => {
-      front.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      front.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-
-      renderTechnologyList(tecnologies.fronted);
+      article.classList.add(
+        "flex",
+        "flex-col",
+        "text-center",
+        "text-sm",
+        "gap-y-2"
+      );
+      article.appendChild(img);
+      article.appendChild(header);
+      listItem.appendChild(article);
+      technologyList.appendChild(listItem);
     });
+  }
 
-    back?.addEventListener('click', () => {
-      front.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      front.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
+  front?.classList.add(
+    "dark:bg-purpleLight",
+    "rounded-full",
+    "dark:text-darkOne",
+    "font-semibold",
+    "bg-purpleDark",
+    "text-light"
+  );
+  renderTechnologyList(technologies.frontend);
+  back?.classList.add(
+    "bg-transparent",
+    "dark:text-light",
+    "font-normal",
+    "text-black"
+  );
+  others?.classList.add(
+    "bg-transparent",
+    "dark:text-light",
+    "font-normal",
+    "text-black"
+  );
 
-      renderTechnologyList(tecnologies.backend);
-    });
+  front?.addEventListener("click", () => {
+    front.classList.remove(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    front.classList.add(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    back.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    back.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    others.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    others.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
 
-    others?.addEventListener('click', () => {
-      front.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      front.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
+    renderTechnologyList(technologies.frontend);
+  });
 
-      renderTechnologyList(tecnologies.others);
-    });
+  back?.addEventListener("click", () => {
+    front.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    front.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    back.classList.remove(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    back.classList.add(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    others.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    others.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
 
+    renderTechnologyList(technologies.backend);
+  });
+
+  others?.addEventListener("click", () => {
+    front.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    front.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    back.classList.remove(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+    back.classList.add(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    others.classList.remove(
+      "bg-transparent",
+      "dark:text-light",
+      "font-normal",
+      "text-black"
+    );
+    others.classList.add(
+      "dark:bg-purpleLight",
+      "rounded-full",
+      "dark:text-darkOne",
+      "font-semibold",
+      "bg-purpleDark",
+      "text-light"
+    );
+
+    renderTechnologyList(technologies.others);
+  });
 </script>

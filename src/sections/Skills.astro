@@ -1,15 +1,91 @@
 ---
-import Desktop from '../desktop/SkillsDesktop.astro';
-import Mobile from '../mobile/SkillsMobile.astro';
-import Section from 'src/components/Section.astro';
+import Section from "src/components/Section.astro";
+import { technologies } from "@cv";
+import { icons } from "@icons";
 ---
 
 <Section id="skills" title="Skills">
-  <div class="block md:hidden w-full">
-    <Mobile />
+  <div class="px-5 mb-4">
+    <div
+      class="grid grid-cols-3 w-full rounded-full dark:bg-darkOne shadow-lg overflow-hidden"
+      data-selected-tech={Object.keys(technologies)[0]}
+    >
+      <button class="frontend p-2" data-skill-button="frontend">Frontend</button
+      >
+      <button class="backend p-2" data-skill-button="backend">Backend</button>
+      <button class="others p-2" data-skill-button="others">Others</button>
+    </div>
   </div>
-  
-  <div class="hidden md:block">
-    <Desktop /> 
+
+  <div
+    id="technology-list"
+    class="p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"
+  >
+    {
+      Object.keys(technologies).map((name) => (
+        <ul class="grid-cols-3 gap-5" data-skill-list-name={name}>
+          {technologies[name].map((tech: string) => (
+            <li>
+              <article class="flex flex-col text-center text-sm gap-y-2">
+                <>
+                  <img
+                    src={icons.find((icon) => icon.name === tech).src}
+                    alt={`${tech} icon`}
+                  />
+                  <header>{tech}</header>
+                </>
+              </article>
+            </li>
+          ))}
+        </ul>
+      ))
+    }
   </div>
 </Section>
+<script>
+  import { technologies } from "@cv";
+
+  const techKeys = Object.keys(technologies);
+
+  const techSelector = document.querySelector("[data-selected-tech]");
+
+  window.addEventListener("load", () => {
+    const skillButtons = document.querySelectorAll("[data-skill-button]");
+    const skillLists = document.querySelectorAll("[data-skill-list-name");
+
+    skillLists.forEach((skillList) => {
+      if (skillList.dataset.skillListName === techKeys[0]) {
+        skillList.classList.add("grid");
+      } else {
+        skillList.classList.add("hidden");
+      }
+    });
+
+    skillButtons.forEach((skillButton) => {
+      if (skillButton.dataset.skillButton === techKeys[0]) {
+        skillButton.classList.add("bg-purpleDark");
+      }
+    });
+
+    skillButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        skillButtons.forEach((updateButton) => {
+          updateButton.classList.remove("bg-purpleDark");
+        });
+
+        const techName = button.dataset.skillButton;
+        techSelector.dataset.selectedTech = techName;
+        button.classList.add("bg-purpleDark");
+        skillLists.forEach((skillList) => {
+          if (skillList.dataset.skillListName == techName) {
+            skillList.classList.add("grid");
+            skillList.classList.remove("hidden");
+          } else {
+            skillList.classList.add("hidden");
+            skillList.classList.remove("grid");
+          }
+        });
+      });
+    });
+  });
+</script>

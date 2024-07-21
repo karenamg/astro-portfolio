@@ -1,14 +1,9 @@
 ---
-import Desktop from '../desktop/HeroDesktop.astro';
-import Mobile from '../mobile/HeroMobile.astro';
 import Section from "../components/Section.astro"
 ---
 <Section id="" title=""> 
-  <div class="block md:hidden">
-    <Mobile />
-  </div>
-
-  <div class="hidden md:block">
-    <Desktop /> 
+  <div class="flex justify-center">
+    <img class="rounded-full size-64"
+    src="photo.jpeg" alt="Karen profile pic">
   </div>
 </Section>

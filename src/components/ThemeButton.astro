@@ -1,11 +1,23 @@
+---
+interface Props {
+  togglerId: string
+}
 
-<ion-icon class="theme hidden md:block text-3xl md:text-2xl cursor-pointer mx-2 text-black dark:text-white"
-name="sunny-outline"></ion-icon>
+const {togglerId} = Astro.props; 
+---
 
-<script>
+<button id={togglerId}>
+  <ion-icon class="theme hidden md:block text-3xl md:text-2xl cursor-pointer mx-2 text-black dark:text-white"
+  name="sunny-outline"></ion-icon>
+</button>
+
+<script define:vars={{togglerId}}>
+  const toggleButton = document.getElementById(togglerId);
+
+  
+
   const icon = document.querySelector('.theme');
 
-  console.log(localStorage.theme);
 
   if (localStorage.theme === 'dark') {
     icon.setAttribute("name", "sunny");
@@ -13,8 +25,7 @@ name="sunny-outline"></ion-icon>
     icon.setAttribute("name", "moon");
   }
   
-  icon?.addEventListener('click', () => {
-    console.log("click");
+  toggleButton.addEventListener('click', () => {
     if (localStorage.theme === 'dark') {
       localStorage.theme = 'light';
       document.documentElement.classList.remove('dark');
@@ -26,5 +37,5 @@ name="sunny-outline"></ion-icon>
       document.body.classList.add('dark');
       icon.setAttribute("name", "sunny");
     }
-  });
+  })
 </script>
