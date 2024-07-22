@@ -1,60 +1,92 @@
 ---
-import Section from 'src/components/Section.astro';
-import InputIcon from "../components/InputIcon.astro"
-import Input from "../components/Input.astro"
+import Section from "src/components/Section.astro";
+import InputIcon from "../components/InputIcon.astro";
+import Input from "../components/Input.astro";
 ---
 
 <Section id="contact" title="Contact me">
   <div class="flex flex-col gap-y-6 justify-center items-center pb-8 w-full">
-    <form action="https://api.web3forms.com/submit" method="POST"
-    class="flex flex-col rounded-2xl bg-light dark:bg-darkOne p-8 gap-y-5 shadow-lg w-full md:max-w-[520px]">
-    
-      <input type="hidden" name="access_key" value="49efc8c7-baa9-4859-b02c-fb98752dde0a">
-  
-      <InputIcon name="name" type="text" label="Name" placeholder="Your name" icon="person-outline"/>
-      <InputIcon name="email" type="email" label="Email" placeholder="Your email" icon="mail-outline"/>
-      <Input name="message" label="Message" placeholder="Your message"/>
-      
-      <button type="submit" class="flex items-center justify-center py-4 bg-purpleDark dark:bg-purpleLight
-        text-light dark:text-dark font-semibold rounded-xl h-10 md:text-lg">
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="flex flex-col rounded-2xl bg-light dark:bg-darkOne p-8 gap-y-5 shadow-lg w-full md:max-w-[520px]"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="49efc8c7-baa9-4859-b02c-fb98752dde0a"
+      />
+
+      <InputIcon
+        name="name"
+        type="text"
+        label="Name"
+        placeholder="Your name"
+        icon="person-outline"
+      />
+      <InputIcon
+        name="email"
+        type="email"
+        label="Email"
+        placeholder="Your email"
+        icon="mail-outline"
+      />
+      <Input name="message" label="Message" placeholder="Your message" />
+
+      <button
+        type="submit"
+        class="flex items-center justify-center py-4 bg-purpleDark dark:bg-purpleLight
+        text-light dark:text-dark font-semibold rounded-xl h-10 md:text-lg"
+      >
         Send Message
       </button>
     </form>
-  
+
     <div class="flex flex-row gap-x-2.5 text-3xl text-dark dark:text-white">
-      <ion-icon id="copy-mail" class="cursor-pointer mx-2" name="mail"></ion-icon>
-      <a rel="githubpage" href="https://github.com/karenamg" target="_blank"> <ion-icon class="cursor-pointer mx-2" name="logo-github"></ion-icon></a>
-      <a rel="linkedinpage" href="https://www.linkedin.com/in/ing-karen-moran/" target="_blank"><ion-icon class="cursor-pointer mx-2" name="logo-linkedin"></ion-icon></a>
+      <a rel="send-email" href="mailto:karenamoran3@gmail.com" target="_blank">
+        <ion-icon class="cursor-pointer mx-2" name="mail"></ion-icon></a
+      >
+      <a rel="githubpage" href="https://github.com/karenamg" target="_blank">
+        <ion-icon class="cursor-pointer mx-2" name="logo-github"></ion-icon></a
+      >
+      <a
+        rel="linkedinpage"
+        href="https://www.linkedin.com/in/ing-karen-moran/"
+        target="_blank"
+        ><ion-icon class="cursor-pointer mx-2" name="logo-linkedin"
+        ></ion-icon></a
+      >
     </div>
   </div>
 </Section>
 
 <script>
-  const button = document.getElementById('copy-mail');
+  const button = document.getElementById("copy-mail");
 
-  button?.addEventListener('click', () => {
-    navigator.clipboard.writeText("karenamoran3@gmail.com")
-    .then(() => {
-      const message = document.createElement('div');
-      message.textContent = 'Email copied!';
-      message.style.position = 'fixed';
-      message.style.top = '85px';
-      message.style.left = '50%';
-      message.style.transform = 'translateX(-50%)';
-      message.style.padding = '10px';
-      message.style.backgroundColor = 'green';
-      message.style.color = 'white';
-      message.style.fontWeight = 'bold';
-      message.style.borderRadius = '10px';
-      message.style.zIndex = '9999';
-      document.body.appendChild(message);
+  button?.addEventListener("click", () => {
+    navigator.clipboard
+      .writeText("karenamoran3@gmail.com")
+      .then(() => {
+        const message = document.createElement("div");
+        message.textContent = "Email copied!";
+        message.style.position = "fixed";
+        message.style.top = "85px";
+        message.style.left = "50%";
+        message.style.transform = "translateX(-50%)";
+        message.style.padding = "10px";
+        message.style.backgroundColor = "green";
+        message.style.color = "white";
+        message.style.fontWeight = "bold";
+        message.style.borderRadius = "10px";
+        message.style.zIndex = "9999";
+        document.body.appendChild(message);
 
-      setTimeout(() => {
-        message.remove();
-      }, 2000);
-    })
-    .catch(() => {
-      console.error('Error copying email');
-    });
+        setTimeout(() => {
+          message.remove();
+        }, 2000);
+      })
+      .catch(() => {
+        console.error("Error copying email");
+      });
   });
 </script>

@@ -1,24 +1,35 @@
 ---
 interface Props {
   name: string;
-  technologies: string [];
+  technologies: string[];
 }
 
-const { name, technologies} = Astro.props; 
-import { icons } from "@icons"
+const { name, technologies } = Astro.props;
+import { icons } from "@icons";
 ---
 
-<div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg">
-  {
-    name && <h3 class="text-center pt-4 px-4">{name}</h3>
-  }
+<div
+  class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg"
+>
+  {name && <h3 class="text-center pt-4 px-4">{name}</h3>}
   <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
     {
-      technologies.map((item)=>{ return <li>
-        <article> 
-          <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
-          <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
-      </li> })
+      technologies.map((item) => {
+        return (
+          <li>
+            <article>
+              <img
+                src={icons.find((icon) => icon.name === item).src}
+                alt={`${item} icon`}
+                class="p-3 lg:p-2"
+              />
+              <header class="text-center md:text-base lg:text-sm xl:text-lg">
+                {item}
+              </header>{" "}
+            </article>
+          </li>
+        );
+      })
     }
   </ul>
 </div>
