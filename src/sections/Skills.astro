@@ -1,132 +1,129 @@
 ---
-import Section from 'src/components/Section.astro';
+import Section from "src/components/Section.astro";
+import TecnologyList from "src/components/TecnologyList.astro";
 
-import { tecnologies } from "@cv"
-  import { icons } from "@icons"
+import { technologies } from "@cv";
+import { icons } from "@icons";
 ---
 
 <Section id="skills" title="Skills">
   <div class="block md:hidden w-full max-w-[520px]">
-    <div class="px-5 mb-4 w-full">
-      <div class="grid grid-cols-3 w-full rounded-full dark:bg-darkOne shadow-lg">
-        <button class="fronted p-2">Fronted</button>
-        <button class="backend p-2">Backend</button>
-        <button class="others p-2">Others</button>
+    <div class="px-5 mb-4">
+      <div
+        class="grid grid-cols-3 w-full rounded-full dark:bg-darkOne shadow-lg overflow-hidden"
+        data-selected-tech={Object.keys(technologies)[0]}
+      >
+        <button class="frontend rounded-full p-2" data-skill-button="frontend"
+          >Frontend</button
+        >
+        <button class="backend rounded-full p-2" data-skill-button="backend"
+          >Backend</button
+        >
+        <button class="others rounded-full p-2" data-skill-button="others"
+          >Others</button
+        >
       </div>
     </div>
-    
-    <ul id="technology-list" class="grid grid-cols-3 gap-5 p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"></ul>
+
+    <div
+      id="technology-list"
+      class="p-4 w-full dark:bg-darkOne rounded-2xl shadow-lg"
+    >
+      {
+        Object.keys(technologies).map((name) => (
+          <ul class="grid-cols-3 gap-5" data-skill-list-name={name}>
+            {technologies[name].map((tech: string) => (
+              <li>
+                <article class="flex flex-col text-center text-sm gap-y-2">
+                  <>
+                    <img
+                      src={icons.find((icon) => icon.name === tech).src}
+                      alt={`${tech} icon`}
+                    />
+                    <header>{tech}</header>
+                  </>
+                </article>
+              </li>
+            ))}
+          </ul>
+        ))
+      }
+    </div>
   </div>
-  
-  <div class="md:grid md:gap-y-12 hidden lg:grid-cols-3 lg:gap-x-12 text-3xl md:w-[520px] lg:w-full">
-    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne rounded-2xl shadow-lg">
-      <h3 class="text-center pt-4 px-4">Fronted</h3>
-      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
-        {
-          tecnologies.fronted.map((item)=>{ return <li>
-            <article> 
-              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
-              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
-          </li> })
-        }
-      </ul>
-    </div>
 
-    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg">
-      <h3 class="text-center pt-4 px-4">Backend</h3>
-      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
-        {
-          tecnologies.backend.map((item)=>{ return <li>
-            <article> 
-              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
-              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
-          </li> })
-        }
-      </ul>
-    </div>
-
-    <div class="w-full min-w-[305px] max-w-[520px] rounded-2xl dark:bg-darkOne shadow-lg">
-      <h3 class="text-center pt-4 px-4">Others</h3>
-      <ul class="grid grid-cols-3 gap-5 p-4 w-full pb-7">
-        {
-          tecnologies.others.map((item)=>{ return <li>
-            <article> 
-              <img src={icons.find(icon => icon.name === item).src} alt=`${item} icon` class="p-3 lg:p-2">
-              <header class="text-center md:text-base lg:text-sm xl:text-lg">{item}</header> </article>
-          </li> })
-        }
-      </ul>
-    </div>
+  <div
+    class="md:grid md:gap-y-12 hidden lg:grid-cols-3 lg:gap-x-12 text-3xl md:w-[520px] lg:w-full"
+  >
+    <TecnologyList name="Frontend" technologies={technologies.frontend} />
+    <TecnologyList name="Backend" technologies={technologies.backend} />
+    <TecnologyList name="Others" technologies={technologies.others} />
   </div>
 </Section>
 
 <script>
-  import { tecnologies } from "@cv"
-  import { icons } from "@icons"
-  const front = document.querySelector('button.fronted');
-  const back = document.querySelector('button.backend');
-  const others = document.querySelector('button.others');
-  const technologyList = document.getElementById('technology-list');
+  import { technologies } from "@cv";
 
-    // Función para renderizar la lista de tecnologías
-    function renderTechnologyList(technologies) {
-      technologyList.innerHTML = '';
+  const techKeys = Object.keys(technologies);
 
-      technologies.forEach((item) => {
-        const listItem = document.createElement('li');
-        const article = document.createElement('article');
-        const img = document.createElement('img');
-        const header = document.createElement('header');
+  const techSelector = document.querySelector("[data-selected-tech]");
 
-        img.src = icons.find((icon) => icon.name === item).src;
-        img.alt = `${item} icon`;
-        header.textContent = item;
+  window.addEventListener("load", () => {
+    const skillButtons = document.querySelectorAll("[data-skill-button]");
+    const skillLists = document.querySelectorAll("[data-skill-list-name]");
 
-        article.classList.add('flex', 'flex-col', 'text-center', 'text-sm', 'gap-y-2');
-        img.classList.add('p-2');
-        article.appendChild(img);
-        article.appendChild(header);
-        listItem.appendChild(article);
-        technologyList.appendChild(listItem);
+    skillLists.forEach((skillList) => {
+      if (skillList.dataset.skillListName === techKeys[0]) {
+        skillList.classList.add("grid");
+      } else {
+        skillList.classList.add("hidden");
+      }
+    });
+
+    skillButtons.forEach((skillButton) => {
+      if (skillButton.dataset.skillButton === techKeys[0]) {
+        skillButton.classList.add(
+          "dark:bg-purpleLight",
+          "dark:text-darkOne",
+          "font-semibold",
+          "bg-purpleDark",
+          "text-light"
+        );
+      }
+    });
+
+    skillButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        skillButtons.forEach((updateButton) => {
+          updateButton.classList.remove(
+            "dark:bg-purpleLight",
+            "dark:text-darkOne",
+            "font-semibold",
+            "bg-purpleDark",
+            "text-light"
+          );
+        });
+
+        button.classList.add(
+          "dark:bg-purpleLight",
+          "dark:text-darkOne",
+          "font-semibold",
+          "bg-purpleDark",
+          "text-light"
+        );
+
+        const techName = button.dataset.skillButton;
+        techSelector.dataset.selectedTech = techName;
+        button.classList.add("bg-purpleDark");
+        skillLists.forEach((skillList) => {
+          if (skillList.dataset.skillListName == techName) {
+            skillList.classList.add("grid");
+            skillList.classList.remove("hidden");
+          } else {
+            skillList.classList.add("hidden");
+            skillList.classList.remove("grid");
+          }
+        });
       });
-    }
-
-    front?.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-    renderTechnologyList(tecnologies.fronted);
-    back?.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-    others?.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-
-    front?.addEventListener('click', () => {
-      front.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      front.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-
-      renderTechnologyList(tecnologies.fronted);
     });
-
-    back?.addEventListener('click', () => {
-      front.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      front.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      others.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-
-      renderTechnologyList(tecnologies.backend);
-    });
-
-    others?.addEventListener('click', () => {
-      front.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      front.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      back.classList.remove('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-      back.classList.add('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.remove('bg-transparent', 'dark:text-light', 'font-normal', 'text-black');
-      others.classList.add('dark:bg-purpleLight', 'rounded-full', 'dark:text-darkOne', 'font-semibold', 'bg-purpleDark', 'text-light');
-
-      renderTechnologyList(tecnologies.others);
-    });
-
+  });
 </script>

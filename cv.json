@@ -6,7 +6,7 @@
       "image": "ucab-forms.jpeg",
       "url": "https://ucab-forms.web.app/login",
       "repository": "https://github.com/Miguelanggelo7/ucab-forms-extended.git",
-      "tecnologies": ["React", "Firebase", "PWA"]
+      "technologies": ["React", "Firebase", "PWA"]
     },
     {
       "name": "Inventas",
@@ -14,7 +14,7 @@
       "image": "inventas.png",
       "url": "",
       "repository": "https://github.com/barreto-exe/inventas.git",
-      "tecnologies": ["Java", "SQLite", "Android Studio"]
+      "technologies": ["Java", "SQLite", "Android Studio"]
     },
     {
       "name": "EnderBattle",
@@ -22,7 +22,7 @@
       "image": "ender-battle.png",
       "url": "",
       "repository": "https://github.com/barreto-exe/ender-battle.git",
-      "tecnologies": ["Java", "SQLite", "libGDX", "Sockets"]
+      "technologies": ["Java", "SQLite", "libGDX", "Sockets"]
     },
     {
       "name": "CodeTrain",
@@ -30,7 +30,7 @@
       "image": "codetrain.jpeg",
       "url": "",
       "repository": "https://github.com/karenamg/kenny-bot.git",
-      "tecnologies": ["Arduino", "C"]
+      "technologies": ["Arduino", "C"]
     },
     {
       "name": "Vision Perfecta",
@@ -38,11 +38,11 @@
       "image": "vision-perfecta.png",
       "url": "https://vision-perfecta.vercel.app/",
       "repository": "https://github.com/karenamg/astro-vision-perfecta.git",
-      "tecnologies": ["Astro.js", "Tailwind CSS", "HTML"]
+      "technologies": ["Astro.js", "Tailwind CSS", "HTML"]
     }
   ],
-  "tecnologies": {
-    "fronted": ["Astro", "HTML", "CSS", "React", "Tailwind CSS", "JavaScript"],
+  "technologies": {
+    "frontend": ["Astro", "HTML", "CSS", "React", "Tailwind CSS", "JavaScript"],
     "backend": [
       "Node.js",
       "Express.js",

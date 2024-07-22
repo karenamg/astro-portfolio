@@ -1,6 +1,6 @@
 ---
 import Section from 'src/components/Section.astro';
-import Card from "../components/Card.astro"
+import Card from "../components/ProjectCard.astro"
 
 import { projects } from '@cv'
 ---
@@ -9,8 +9,8 @@ import { projects } from '@cv'
   <div class="flex flex-col gap-y-6 justify-center items-center w-full
   lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start lg:place-items-stretch">
     {
-      projects.map(({name, description, image, url, repository, tecnologies}) => {
-        return <Card name={name} description={description} image={image} url={url} repository={repository} tecnologies={tecnologies}/>
+      projects.map(({name, description, image, url, repository, technologies}) => {
+        return <Card name={name} description={description} image={image} url={url} repository={repository} technologies={technologies}/>
       })
     }
   </div>
