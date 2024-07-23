@@ -15,6 +15,7 @@ export default {
         purpleDark: "#805AD5",
         grayLight: "#A0AEC0",
         whiteAlpha: "#EDF2F7",
+        darkTwo: "#4b1f89",
       },
     },
   },

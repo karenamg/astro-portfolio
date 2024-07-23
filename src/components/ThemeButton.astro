@@ -3,33 +3,33 @@ interface Props {
   id: string;
 }
 
-const { id } = Astro.props; 
+const { id } = Astro.props;
 ---
-<ion-icon id={id} class="theme hidden md:block text-3xl md:text-2xl cursor-pointer ml-2 text-black dark:text-white"
-name="sunny-outline"></ion-icon>
 
-<script define:vars={{id}}>
+<ion-icon
+  id={id}
+  class="theme hidden md:block text-3xl md:text-2xl cursor-pointer ml-2 text-black dark:text-white"
+  name="sunny-outline"></ion-icon>
+
+<script define:vars={{ id }}>
   const icon = document.getElementById(id);
 
-  console.log(localStorage.theme);
-
-  if (localStorage.theme === 'dark') {
+  if (localStorage.theme === "dark") {
     icon.setAttribute("name", "sunny");
   } else {
     icon.setAttribute("name", "moon");
   }
-  
-  icon?.addEventListener('click', () => {
-    console.log("click");
-    if (localStorage.theme === 'dark') {
-      localStorage.theme = 'light';
-      document.documentElement.classList.remove('dark');
-      document.body.classList.remove('dark');
+
+  icon?.addEventListener("click", () => {
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+      document.body.classList.remove("dark");
       icon.setAttribute("name", "moon");
     } else {
-      localStorage.theme = 'dark';
-      document.documentElement.classList.add('dark');
-      document.body.classList.add('dark');
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
       icon.setAttribute("name", "sunny");
     }
   });

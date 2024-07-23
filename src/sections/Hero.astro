@@ -1,9 +1,41 @@
 ---
-import Section from "../components/Section.astro"
+import Section from "../components/Section.astro";
 ---
-<Section id="" title=""> 
-  <div class="flex justify-center">
-    <img class="rounded-full size-64"
-    src="photo.jpeg" alt="Karen photo">
+
+<Section id="top" title="">
+  <div class="flex flex-col gap-y-16 justify-center sm:mb-16 mt-20 mb-12">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold m-auto">
+      Hello<br />I'm Karen Morán<br />
+      <span
+        class="bg-gradient-to-r from-darkTwo dark:from-purpleLight to-purpleDark dark:to-purpleDark text-transparent bg-clip-text"
+        >Software Engineer</span
+      >
+    </h1>
+
+    <p
+      class="text-xl sm:text-2xl w-full max-w-[350px] sm:max-w-[600px] m-auto text-center"
+    >
+      Empowering innovation through code and creativity, Crafting digital
+      solutions for a brighter tomorrow.
+    </p>
+
+    <button
+      type="button"
+      id="scroll-to-projects"
+      class="flex items-center justify-center py-4 bg-purpleDark dark:bg-purpleLight w-40
+      h-10 m-auto text-light dark:text-dark font-semibold rounded-xl h-10 md:text-lg"
+    >
+      Projects
+    </button>
   </div>
 </Section>
+
+<script>
+  document
+    .getElementById("scroll-to-projects")
+    .addEventListener("click", function () {
+      document
+        .getElementById("projects")
+        .scrollIntoView({ behavior: "smooth" });
+    });
+</script>
