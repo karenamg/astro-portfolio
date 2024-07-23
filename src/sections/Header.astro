@@ -23,7 +23,7 @@ import ThemeButton from "../components/ThemeButton.astro";
       class="links flex flex-col items-center justify-center absolute w-full h-screen left-0 top-0
       z-[-1] -translate-y-full bg-light dark:bg-dark"
     >
-      <ul class="flex flex-col gap-y-[48px] text-center">
+      <ul class="flex flex-col gap-y-[48px] text-center text-xl font-semibold">
         <li>
           <a href="#projects" class="ref">Projects</a>
         </li>
@@ -39,6 +39,15 @@ import ThemeButton from "../components/ThemeButton.astro";
       </ul>
 
       <div class="flex flex-row gap-x-2 pt-[100px]">
+        <a
+          rel="send-email"
+          href="mailto:karenamoran3@gmail.com"
+          target="_blank"
+        >
+          <ion-icon
+            class="text-3xl cursor-pointer mx-2 text-black dark:text-white"
+            name="mail"></ion-icon></a
+        >
         <a rel="githubpage" href="https://github.com/karenamg" target="_blank">
           <ion-icon
             class="text-3xl cursor-pointer mx-2 text-black dark:text-white"
