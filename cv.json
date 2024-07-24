@@ -3,7 +3,7 @@
     {
       "name": "UCAB Forms",
       "description": "A progressive web app to help UCAB students and faculty fill out forms. The application includes many features like a variety of types questions, authentication, realtime collaboration, offline support and many different ways of visualizing and exporting results. Currently, this app is being used by the university.",
-      "image": "ucab-forms.jpeg",
+      "image": "ucab-forms.png",
       "url": "https://ucab-forms.web.app/login",
       "repository": "https://github.com/Miguelanggelo7/ucab-forms-extended.git",
       "technologies": ["React", "Firebase", "PWA"]
@@ -27,7 +27,7 @@
     {
       "name": "CodeTrain",
       "description": "An interactive educational robot promoting computational thinking in young children. Built with Arduino and 3D-printed design, it introduces programming concepts and enhances problem-solving skills from an early age.",
-      "image": "codetrain.jpeg",
+      "image": "code-train.jpeg",
       "url": "",
       "repository": "https://github.com/karenamg/kenny-bot.git",
       "technologies": ["Arduino", "C"]
