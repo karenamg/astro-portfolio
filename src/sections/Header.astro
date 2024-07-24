@@ -7,10 +7,10 @@ import ThemeButton from "../components/ThemeButton.astro";
 >
   <nav class="py-6 px-6 content-center relative w-full">
     <div class="flex justify-between items-center">
-      <div class="flex flex-row items-center gap-x-[10px] logo">
+      <a href="#top" class="flex flex-row items-center gap-x-[10px] logo">
         <img class="size-7" src="/favicon.png" alt="Karen logo" />
         <label for="name" class="text-xl">Karen Morán</label>
-      </div>
+      </a>
 
       <ThemeButton id="mobile-toggler" />
 
@@ -72,10 +72,10 @@ import ThemeButton from "../components/ThemeButton.astro";
   <nav
     class="flex justify-between items-center py-6 px-8 content-center w-full max-w-[1440px] m-0"
   >
-    <div class="flex flex-row items-center gap-x-5">
+    <a href="#top" class="flex flex-row items-center gap-x-5">
       <img class="size-11" src="/favicon.png" alt="Karen logo" />
       <label for="name" class="md:text-lg lg:text-2xl">Karen Morán</label>
-    </div>
+    </a>
 
     <div class="flex flex-row">
       <ul class="flex flex-row items-center justify-center gap-x-8 text-lg">
@@ -126,7 +126,7 @@ import ThemeButton from "../components/ThemeButton.astro";
 <script>
   const menu = document.querySelector("ion-icon.menu");
   const themeToggle = document.querySelector("ion-icon.theme");
-  const logo = document.querySelector("div.logo");
+  const logo = document.querySelector("a.logo");
   const links = document.querySelector("div.links");
   const list = document.querySelectorAll("a.ref");
 
