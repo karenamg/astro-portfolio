@@ -1,6 +1,20 @@
 {
   "projects": [
     {
+      "name": "Analíticas Cita Médica",
+      "description": "A webpage featuring various interactive graphics displaying Key Performance Indicators (KPIs) to assess the monthly progress of the Medical Appointment company. This enhances data visualization for informed decision-making. The software is currently in use by the company and has had a positive impact.",
+      "image": "cita-medica.png",
+      "url": "https://analiticas.citamedica.app/",
+      "repository": "https://gitlab.com/citamedica2471/analytics-24siete",
+      "technologies": [
+        "Next.js",
+        "Typescript",
+        "Recharts",
+        "Django",
+        "PostgreSQL"
+      ]
+    },
+    {
       "name": "UCAB Forms",
       "description": "A progressive web app to help UCAB students and faculty fill out forms. The application includes many features like a variety of types questions, authentication, realtime collaboration, offline support and many different ways of visualizing and exporting results. Currently, this app is being used by the university.",
       "image": "ucab-forms.png",
